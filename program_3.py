@@ -10,7 +10,21 @@
 # are converted to a number.
 def sum_numbers_from_file():
     ######################
-    # Add your code here #
+    with open("numbers.txt", "r") as file1:
+        lines = file1.readlines()
+
+    number_list = []
+
+    for line in lines:
+        numbers = line.rstrip('\n').split(',')
+        number_list.extend(numbers)
+
+    number_list = [int(num) for num in number_list]
+
+    total = sum(number_list)
+
+    print(f"Sum of numbers: {total}")
+
     ######################
     print('In the sum_numbers_from_file function')
 
